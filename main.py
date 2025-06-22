@@ -14,7 +14,6 @@ def main():
     text = get_book_text(path)
     num_words = count_words(text)
     char_count = count_characters(text)
-    print(char_count)
     sorted_chars = sort_char(char_count)
     print("============ BOOKBOT ============")
     print("Analyzing book found at books/frankenstein.txt...")
