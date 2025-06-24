@@ -13,11 +13,11 @@ def count_characters(text):
             s[i] += 1
     return s
 
-def sort_char(text):
+def sort_char(char_dict):
     list_dict = []
-    for char in text:
+    for char in char_dict:
         if char.isalpha():
-            count = text[char]
+            count = char_dict[char]
             list_dict.append({"char": char, "num": count})
     list_dict.sort(reverse=True, key=lambda x: x["num"])
     return list_dict
@@ -31,3 +31,14 @@ def common_word_count(text):
         if clean_word in common_words:
             count += 1
     return count
+
+def top_word(text):
+    counted_words = {}
+    words = text.lower().split()
+    for word in words:
+        clean_word = word.strip(".,?!'/")
+        if clean_word in counted_words:
+            counted_words[clean_word] += 1
+        else:
+            counted_words[clean_word] = 1
+    return max(counted_words, key=lambda x: counted_words.get(x))

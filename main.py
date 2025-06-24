@@ -2,6 +2,7 @@ from stats import count_words
 from stats import count_characters
 from stats import sort_char
 from stats import common_word_count
+from stats import top_word
 import sys
 
 if len(sys.argv) != 2:
@@ -19,6 +20,7 @@ def main():
     char_count = count_characters(text)
     sorted_chars = sort_char(char_count)
     common_words = common_word_count(text)
+    biggest_word = top_word(text)
     print("============ BOOKBOT ============")
     print("Analyzing imported book")
     print("----------- Word Count ----------")
@@ -28,6 +30,8 @@ def main():
         print(f"{item['char']}: {item['num']}")
     print("--------- Common Word Count ---------")
     print(f"{common_words} common words found in text")
+    print("--------- Top Word ---------")
+    print(f"'{biggest_word}' is the most used word")
     print("============= END ===============")
 
 main()
