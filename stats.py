@@ -21,3 +21,13 @@ def sort_char(text):
             list_dict.append({"char": char, "num": count})
     list_dict.sort(reverse=True, key=lambda x: x["num"])
     return list_dict
+
+def common_word_count(text):
+    words = text.lower().split()
+    common_words = {"said", "more", "man", "other"}
+    count = 0
+    for word in words:
+        clean_word = word.strip(".,?!'/")
+        if clean_word in common_words:
+            count += 1
+    return count
