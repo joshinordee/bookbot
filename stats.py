@@ -32,7 +32,7 @@ def common_word_count(text):
             count += 1
     return count
 
-def top_word(text):
+def top_three_words(text):
     counted_words = {}
     words = text.lower().split()
     for word in words:
@@ -41,4 +41,6 @@ def top_word(text):
             counted_words[clean_word] += 1
         else:
             counted_words[clean_word] = 1
-    return max(counted_words, key=lambda x: counted_words.get(x))
+    # Sort by count descending and get the top 3
+    top_three = sorted(counted_words.items(), key=lambda x: x[1], reverse=True)[:3]
+    return top_three
